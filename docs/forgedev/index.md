@@ -42,7 +42,7 @@ Depending on your favourite IDE, there is a different set of recommended steps y
 
 ### Eclipse
 
-Due to the way eclipse workspaces work, ForgeGradle can do most of the work involved in getting you started with a Forge workspace for you.
+Due to the way Eclipse workspaces work, ForgeGradle can do most of the work involved in getting you started with a Forge workspace for you.
 
  1. Open a terminal/command prompt and navigate it to the directory of your cloned fork.
  2. Type `./gradlew setup` and hit enter. Wait until ForgeGradle is done.
