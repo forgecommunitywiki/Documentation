@@ -47,8 +47,8 @@ Due to the way eclipse workspaces work, ForgeGradle can do most of the work invo
  1. Open a terminal/command prompt and navigate it to the directory of your cloned fork.
  2. Type `./gradlew setup` and hit enter. Wait until ForgeGradle is done.
  3. Type `./gradlew eclipse` and hit enter. This allows Eclipse to detect the "Forge" and "Clean" subdirectories within `projects` to import them into the workspace.
- 4. Open your eclipse workspace and go to `File -> Import -> General -> Existing Projects into workspace`.
- 5. Browse to the `<repo>/projects/` directory for the root directory in the dialog that opens.
+ 4. Open your Eclipse workspace and go to `File -> Import -> General -> Existing Projects into workspace`.
+ 5. Browse to the `<repo>/projects/` directory for the "Root directory" option in the dialog that opens.
  6. Make sure both "Forge" and "Clean" are checked and adjust the other settings to your liking.
  7. Complete the import by clicking the "Finish" button.
 
