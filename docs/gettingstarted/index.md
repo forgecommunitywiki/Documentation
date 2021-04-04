@@ -20,7 +20,7 @@ From Zero to Modding
     * For most, if not all, changes to the build.gradle file to take effect Gradle will need to be invoked to re-evaluate the project, this can be done through Refresh buttons in the Gradle panels of both the previously mentioned IDEs.
 6. Generating IDE Launch/Run Configurations:
     * For Eclipse, run the `genEclipseRuns` gradle task (`gradlew genEclipseRuns`). This will generate the Launch Configurations and download any required assets for the game to run. After this has finished, refresh your project.
-    * For IntelliJ, run the `genIntellijRuns` gradle task (`gradlew genIntellijRuns`). This will generate the Run Configurations and download any required assets for the game to run. After this has finished, edit your configurations to fix the "module not specified" error by changing selecting your "main" module.
+    * For IntelliJ, run the `genIntellijRuns` gradle task (`gradlew genIntellijRuns`). This will generate the Run Configurations and download any required assets for the game to run.
     * For VSCode, run the `genVSCodeRuns` gradle task (`gradlew genVSCodeRuns`). The will generate the Launch Configurations and download any required assets for the game to run.
 
 Customizing Your Mod Information
