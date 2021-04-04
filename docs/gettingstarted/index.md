@@ -7,8 +7,8 @@ From Zero to Modding
 --------------------
 
 1. Obtain a Java 8 Development Kit (JDK) and a 64-bit Java Virtual Machine (JVM). Minecraft and MinecraftForge both compile against Java 8 and as such should be used for development. Using a 32-bit JVM will result in some problems when running the below gradle tasks. You can obtain one from [AdoptOpenJDK][jdk].
-2. Obtain the Mod Development Kit (MDK) from forge's [files][] site. (Look for the MDK file type)
-3. Extract the downloaded MDK to an empty directory. You should see a bunch of files, and an example mod is placed in `src/main/java` for you to look at. Only a few of these files are strictly necessary for mod development, and you may reuse these files for all your projects These files are:
+2. Obtain the Mod Development Kit (MDK) from Forge's [files][] site (Look for the MDK file type).
+3. Extract the downloaded MDK to an empty directory. You should see a bunch of files, and an example mod is placed in `src/main/java` for you to look at. Only a few of these files are strictly necessary for mod development, and you may reuse these files for all your projects. These files are:
     * `build.gradle`
     * `gradlew.bat`
     * `gradlew`
@@ -19,8 +19,8 @@ From Zero to Modding
     * For both Intellij IDEA and Eclipse, their Gradle integration will handle the rest of the initial workspace setup. This includes downloading packages from Mojang, MinecraftForge, and a few other software sharing sites. For VSCode, the 'Gradle Tasks' plugin can be used to handle the initial workspace setup.
     * For most, if not all, changes to the build.gradle file to take effect Gradle will need to be invoked to re-evaluate the project, this can be done through Refresh buttons in the Gradle panels of both the previously mentioned IDEs.
 6. Generating IDE Launch/Run Configurations:
-    * For Eclipse, run the `genEclipseRuns` gradle task (`gradlew genEclipseRuns`). This will generate the Launch Configurations and download any required assets for the game to run. After this has finished refresh your project.
-    * For IntelliJ, run the `genIntellijRuns` gradle task (`gradlew genIntellijRuns`). This will generate the Run Configurations and download any required assets for the game to run. After this has finished edit your Configurations to fix the "module not specified" error by changing selecting your "main" module.
+    * For Eclipse, run the `genEclipseRuns` gradle task (`gradlew genEclipseRuns`). This will generate the Launch Configurations and download any required assets for the game to run. After this has finished, refresh your project.
+    * For IntelliJ, run the `genIntellijRuns` gradle task (`gradlew genIntellijRuns`). This will generate the Run Configurations and download any required assets for the game to run. After this has finished, edit your configurations to fix the "module not specified" error by changing selecting your "main" module.
     * For VSCode, run the `genVSCodeRuns` gradle task (`gradlew genVSCodeRuns`). The will generate the Launch Configurations and download any required assets for the game to run.
 
 Customizing Your Mod Information
