@@ -7,7 +7,7 @@ From Zero to Modding
 --------------------
 
 1. Obtain a Java 8 Development Kit (JDK) and a 64-bit Java Virtual Machine (JVM). Minecraft and MinecraftForge both compile against Java 8 and as such should be used for development. Using a 32-bit JVM will result in some problems when running the below gradle tasks. You can obtain one from [AdoptOpenJDK][jdk].
-2. Obtain the Mod Development Kit (MDK) from Forge's [files][] site (Look for the MDK file type).
+2. Obtain the Mod Development Kit (MDK) from Forge's [files][] site.
 3. Extract the downloaded MDK to an empty directory. You should see a bunch of files, and an example mod is placed in `src/main/java` for you to look at. Only a few of these files are strictly necessary for mod development, and you may reuse these files for all your projects. These files are:
     * `build.gradle`
     * `gradlew.bat`
