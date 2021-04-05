@@ -65,7 +65,7 @@ Packets sent from the server to the client should be handled in another class an
 public static void handle(MyMessage msg, Supplier<NetworkEvent.Context> ctx) {
     ctx.get().enqueueWork(() ->
         // Make sure it's only executed on the physical client
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandlerClass.handlePacket(msg, ctx));
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> ClientPacketHandlerClass.handlePacket(msg, ctx))
     );
     ctx.get().setPacketHandled(true);
 }
