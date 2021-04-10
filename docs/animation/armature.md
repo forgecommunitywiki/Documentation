@@ -151,7 +151,7 @@ They are formatted like this:
 ### Joint Clips
 Each `joint_clip` is a set of variables to change for a joint. The `type` attribute is currently ignored, but must be `"uniform"`.
 
-`samples` defines what value the animation will take on (think of key frames in traditional animation), and its interpretation depends on the value of `interpolation`.
+`samples` defines what value the animation will take on (think of keyframes in traditional animation), and its interpretation depends on the value of `interpolation`.
 
 `interpolation`, which is how to convert the list of samples into a (possibly) continuous animation can be one of the following:
 

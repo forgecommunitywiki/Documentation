@@ -8,7 +8,7 @@ Creating an Item
 
 ### Basic Items
 
-Basic items that need no special functionality (think sticks or sugar) don't need custom classes. You can create an item by instantiate the `Item` class with an `Item.Properties` object. This `Item.Properties` object can be made calling the constructor and it can be customized by calling its methods. For instance:
+Basic items that need no special functionality (think sticks or sugar) don't need custom classes. You can create an item by instantiating the `Item` class with an `Item.Properties` object. This `Item.Properties` object can be made via the constructor and customized by calling its methods. For instance:
 
 |         Method         |                  Description                  |
 |:----------------------:|:----------------------------------------------|
