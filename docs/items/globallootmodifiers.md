@@ -7,14 +7,14 @@ Registering a Global Loot Modifier
 -------------------------------
 
 You will need 4 things:
-1. Create a `global_loot_modifiers.json` file at `/data/forge/loot_modifiers/`
-	This will tell Forge about your modifiers and works similar to [tags][].
-2. A serialized json representing your modifier
+1. Create a `global_loot_modifiers.json` file at `/data/forge/loot_modifiers/`.
+    This will tell Forge about your modifiers and works similar to [tags][].
+2. A serialized json representing your modifier.
     This will contain all of the data about your modification and allows data packs to tweak your effect.
-3. A class that extends `LootModifier`
+3. A class that extends `LootModifier`.
     The operational code that makes your modifier work.
-4. Finally, the serializer for your operational class
-	This is [registered] as any other `ForgeRegistryEntry`.
+4. Finally, the serializer for your operational class.
+    This is [registered] as any other `ForgeRegistryEntry`.
 
 The `global_loot_modifiers.json`
 -------------------------------
@@ -69,57 +69,48 @@ You will also need a class that extends `GlobalLootModifierSerializer<T>` where 
 
 ```java
 public class WheatSeedsConverterModifier extends LootModifier {
-	private final int numSeedsToConvert;
-	private final Item itemToCheck;
-	private final Item itemReward;
-	public WheatSeedsConverterModifier(ILootCondition[] conditionsIn, int numSeeds, Item itemCheck, Item reward) {
-		super(conditionsIn);
-		numSeedsToConvert = numSeeds;
-		itemToCheck = itemCheck;
-		itemReward = reward;
-	}
+    private final int numSeedsToConvert;
+    private final Item itemToCheck;
+    private final Item itemReward;
+    public WheatSeedsConverterModifier(ILootCondition[] conditionsIn, int numSeeds, Item itemCheck, Item reward) {
+        super(conditionsIn);
+        numSeedsToConvert = numSeeds;
+        itemToCheck = itemCheck;
+        itemReward = reward;
+    }
 
-	@Nonnull
-	@Override
-	public List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-		//
-		// Additional conditions can be checked, though as much as possible should be parameterized via JSON data.
-		// It is better to write a new ILootCondition implementation than to do things here.
-		//
-		int numSeeds = 0;
-		for (ItemStack stack : generatedLoot) {
-			if (stack.getItem() == itemToCheck)
-				numSeeds += stack.getCount();
-		}
-		if (numSeeds >= numSeedsToConvert) {
-			generatedLoot.removeIf(x -> x.getItem() == itemToCheck);
-			generatedLoot.add(new ItemStack(itemReward, (numSeeds / numSeedsToConvert)));
-			numSeeds = numSeeds % numSeedsToConvert;
-			if (numSeeds > 0)
-				generatedLoot.add(new ItemStack(itemToCheck, numSeeds));
-		}
-		return generatedLoot;
-	}
-
-	public static class Serializer extends GlobalLootModifierSerializer<WheatSeedsConverterModifier> {
-
-		@Override
-		public WheatSeedsConverterModifier read(ResourceLocation name, JsonObject object, ILootCondition[] conditionsIn) {
-			int numSeeds = JSONUtils.getInt(object, "numSeeds");
-			Item seed = ForgeRegistries.ITEMS.getValue(new ResourceLocation((JSONUtils.getString(object, "seedItem"))));
-			Item wheat = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getString(object, "replacement")));
-			return new WheatSeedsConverterModifier(conditionsIn, numSeeds, seed, wheat);
-		}
-
-		@Override
-		public JsonObject write(WheatSeedsConverterModifier instance) {
-            JsonObject object = this.makeConditions(instance.conditions);
-            object.addProperty("numSeeds", instance.numSeedsToConvert);
-            object.addProperty("seedItem", instance.itemToCheck.getRegistryName().toString());
-            object.addProperty("replacement", instance.itemReward.getRegistryName().toString());
-            return object;
+    @Nonnull
+    @Override
+    public List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+        //
+        // Additional conditions can be checked, though as much as possible should be parameterized via JSON data.
+        // It is better to write a new ILootCondition implementation than to do things here.
+        //
+        int numSeeds = 0;
+        for (ItemStack stack : generatedLoot) {
+            if (stack.getItem() == itemToCheck)
+                numSeeds += stack.getCount();
         }
-	}
+        if (numSeeds >= numSeedsToConvert) {
+            generatedLoot.removeIf(x -> x.getItem() == itemToCheck);
+            generatedLoot.add(new ItemStack(itemReward, (numSeeds / numSeedsToConvert)));
+            numSeeds = numSeeds % numSeedsToConvert;
+            if (numSeeds > 0)
+                generatedLoot.add(new ItemStack(itemToCheck, numSeeds));
+        }
+        return generatedLoot;
+    }
+
+    public static class Serializer extends GlobalLootModifierSerializer<WheatSeedsConverterModifier> {
+
+        @Override
+        public WheatSeedsConverterModifier read(ResourceLocation name, JsonObject object, ILootCondition[] conditionsIn) {
+            int numSeeds = JSONUtils.getInt(object, "numSeeds");
+            Item seed = ForgeRegistries.ITEMS.getValue(new ResourceLocation((JSONUtils.getString(object, "seedItem"))));
+            Item wheat = ForgeRegistries.ITEMS.getValue(new ResourceLocation(JSONUtils.getString(object, "replacement")));
+            return new WheatSeedsConverterModifier(conditionsIn, numSeeds, seed, wheat);
+        }
+    }
 }
 ```
 
@@ -127,11 +118,10 @@ The critical portion is the `doApply` method.
 
 This method is only called if the `conditions` specified return `true`. If so, the modder is now able to make the modifications they desire. In this case, we can see that the number of `itemToCheck` meets or exceeds the `numSeedsToConvert` before modifying the list by adding an `itemReward` and removing any excess `itemToCheck` stacks, matching the previously mentioned effects: *When a wheat block is harvested with shears, if enough seeds are generated as loot, they are converted to additional wheat instead*.
 
-Also take note of the `read` method in the serializer. The conditions are already deserialized for you and if you have no other data, simply `return new MyModifier(conditionsIn)`. However, the full `JsonObject` is available if needed. The `write` method, on the other hand, is used for if you want to utilize `GlobalLootModifierProvider` for [data generation][datagen].
+Also take note of the `read` method in the serializer. The conditions are already deserialized for you and if you have no other data, simply `return new MyModifier(conditionsIn)`. However, the full `JsonObject` is available if needed.
 
 Additional [examples] can be found on the Forge Git repository, including silk touch and smelting effects.
 
 [tags]: ../utilities/tags.md
 [registered]: ../concepts/registries.md#registering-things
-[datagen]: ../datagen/intro.md
 [examples]: https://github.com/MinecraftForge/MinecraftForge/blob/1.15.x/src/test/java/net/minecraftforge/debug/gameplay/loot/GlobalLootModifiersTest.java
