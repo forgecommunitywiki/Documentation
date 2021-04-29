@@ -58,25 +58,36 @@ That is all it takes to get you up and running with Eclipse. There is no extra s
 
 JetBrains' flagship IDE comes with great integrated support for [Gradle][gradle]: Forge's build system of choice. Due to some peculiarities of Minecraft mod development, however, there are additional steps required to get everything to work properly.
 
-#### IDEA 2019 onwards
+#### IDEA 2021 onwards
+1. Start IntelliJ IDEA 2021.
+    - If you already have another project open, close the project with the File -> Close project option.
+2. In the projects tab of the "Welcome to IntelliJ IDEA" window, click the "Open" button on the top right and select the MinecraftForge folder you cloned earlier.
+3. Click "Trust Project" if prompted.
+4. After IDEA is done importing the project and indexing its files, run the Gradle setup task. You can do this by:
+    - Open the Gradle sidebar on the right hand side of your screen, then open the forge project tree, select Tasks, then other and double-click the `setup` task (may also appear as `MinecraftForge[Setup]`) found in Forge -> Tasks -> other -> `setup`.
+- If you get a licensing error during build before making any changes, running the `updateLicenses` task may help. This task is found in Forge -> Tasks -> other as well.
+
+#### IDEA 2019-2020
+There are a few minor differences between IDEA 2021 and these versions for setup.
+
 1. Import Forge's `build.gradle` as an IDEA project. For this, simply click `Import Project` from the `Welcome to IntelliJ IDEA` splash screen, then select the `build.gradle` file.
 1. After IDEA is done importing the project and indexing the files, run the Gradle setup task. Either:
-    1. open the Gradle sidebar on the right hand side of your screen, then open the `forge` project tree, select `Tasks`, then `other` and double-click the `setup` task (may also appear as `MinecraftForge[Setup]`. Or alternatively:
-    1. tap the CTRL key twice, and type `gradle setup` in the `Run` command window that pops up.
+    1. Open the Gradle sidebar on the right hand side of your screen, then open the `forge` project tree, select `Tasks`, then `other` and double-click the `setup` task (may also appear as `MinecraftForge[Setup]`. Or alternatively:
+    1. Tap the CTRL key twice, and type `gradle setup` in the `Run` command window that pops up.
 
 You can then run Forge using the `forge_client` gradle task (`Tasks -> fg_runs -> forge_client`): right-click the task and select either `Run` or `Debug` as desired.
 
 #### IDEA older versions
 Versions older than 2016 will not work because they did not have the appropriate Gradle support nor support Forge development multi-project workspaces.
 
-IDEA 2016 - 2018 will work with extra manual steps required, but it is strongly recommended to update to IntelliJ 2019+ instead.
-cpw has uploaded [a video][intellijsetup] for IntelliJ 2016.1 explaining very similar steps which will lead to a working setup.
+IDEA 2016 - 2018 will work with extra manual steps required, but it is strongly recommended to update to IDEA 2019+ instead.
+cpw has uploaded [a video][intellijsetup] for IDEA 2016.1 explaining very similar steps which will lead to a working setup.
 
 That is all there is to creating a Forge development environment in IntelliJ IDEA. However, you will not be able to run tests and debug mods included in Forge straight away. This takes some extra effort.
 
 #### Enabling test mods
 
-To enable the test mods coming with Forge, you will need to add the compiler output to the classpath. Again, cpw has put up [a video][testsetup] explaining these steps for IntelliJ 2016.1.
+To enable the test mods coming with Forge, you will need to add the compiler output to the classpath. Again, cpw has put up [a video][testsetup] explaining these steps for IDEA 2016.1.
 
  1. Build the test classes by selecting the `src/main/test` directory in your project view and then run `Build -> Build module 'Forge_test'` from the menu bar.
  2. Open the "Project Structure" window under `File -> Project Structure`.
@@ -91,7 +102,7 @@ Now that you have added the test mods to the classpath, you need to rebuild them
 
 #### Testing with existing mods
 
-You might want to test changes in Forge with an existing project. The [video][testsetup] by cpw linked in the test mods section also covers this for IntelliJ 2016.1. Getting the mod to run requires similar steps to the test mod, but getting your project added to the workspace requires some additional work.
+You might want to test changes in Forge with an existing project. The [video][testsetup] by cpw linked in the test mods section also covers this for IDEA 2016.1. Getting the mod to run requires similar steps to the test mod, but getting your project added to the workspace requires some additional work.
 
  1. Open the "Project Structure" Window under `File -> Project Structure`.
  2. Head to the "Modules" section and press the green plus icon above the tree view.
