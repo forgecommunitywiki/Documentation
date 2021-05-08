@@ -2,7 +2,7 @@
 
 This is an omnibus fork of the MinecraftForge Documentation to address any and all inaccuracies, typos, and formatting errors currently present. As such, this will not address any existing PRs or issues that request new pages or content that exists outside the current scope of those existing.
 
-The current timeline is to have the omnibus PR done by May 8th at 12:00 UTC assuming no other page requests have been merged between now and then. The PR will be a draft on the official documentation until that point.
+The current timeline is to have the omnibus PR done by May 10th assuming no other page requests have been merged between now and then. The PR will be a draft on the official documentation until that point.
 
 ## What is an Omnibus?
 
