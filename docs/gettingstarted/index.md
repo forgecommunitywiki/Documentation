@@ -36,7 +36,7 @@ Almost anything underneath the `// Only edit below this line, the above code add
 
 !!! important
 
-    The docs will use the mappings within the buildscript in the most recent mdk. Currently, this is the 'official' mappings or mojmaps.
+    The docs will use the mappings within the buildscript in the most recent MDK. Currently, this is the Mojang's Official Mappings. There is no guarantee that these mappings are legally safe; however, Forge has decided to adopt them in good faith since Mojang wants them to be used. You can read about [Forge's stance here][mojmap].
 
 ### Simple `build.gradle` Customizations
 
@@ -60,3 +60,4 @@ Building and Testing Your Mod
     
 [files]: https://files.minecraftforge.net "Forge Files distribution site"
 [jdk]: https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=hotspot "AdoptOpenJdk 8 Prebuilt Binaries"
+[mojmap]: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
