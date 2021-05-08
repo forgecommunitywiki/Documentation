@@ -34,6 +34,10 @@ Edit the `build.gradle` file to customize how your mod is built (the file names,
 
 Almost anything underneath the `// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.` marker can be changed. Many things can be removed and customized there as well.
 
+!!! important
+
+    The docs will use the mappings within the buildscript in the most recent mdk. Currently, this is the 'official' mappings or mojmaps.
+
 ### Simple `build.gradle` Customizations
 
 These customizations are highly recommended for all projects.
