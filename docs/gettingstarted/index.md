@@ -33,10 +33,7 @@ Edit the `build.gradle` file to customize how your mod is built (the file names,
     **Do not** edit the `buildscript {}` section of the build.gradle file, its default text is necessary for ForgeGradle to function.
 
 Almost anything underneath the `// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.` marker can be changed. Many things can be removed and customized there as well.
-
-!!! important
-
-    The docs will use the mappings within the buildscript in the most recent MDK. Currently, this is the Mojang's Official Mappings. There is no guarantee that these mappings are legally safe; however, Forge has decided to adopt them in good faith since Mojang wants them to be used. You can read about [Forge's stance here][mojmap].
+    
 
 ### Simple `build.gradle` Customizations
 
@@ -46,6 +43,18 @@ These customizations are highly recommended for all projects.
 * To change your "maven coordinates" - edit the value of `group` as well.
 * To change the version number - edit the value of `version`.
 * To update the run configurations - replace all occurrences of `examplemod` to the mod id of your mod.
+
+### Migration to Mojang's Official Mappings
+
+As of 1.16.5, Forge will be using Mojang's Official Mappings, or MojMaps, for the forseeable future. Currently, there is no guarantee that these mappings are legally safe; however, Forge has decided to adopt them in good faith since Mojang wants them to be used. You can read about [Forge's stance here][mojmap].
+
+If you are uncomfortable using these mappings, you can revert them back the previously used mappings: MCP. Note that the following will most likely be the last MCP mappings released as they are no longer being maintained:
+
+```groovy
+minecraft {
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
+}
+```
 
 Building and Testing Your Mod
 -----------------------------
