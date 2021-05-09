@@ -46,9 +46,9 @@ These customizations are highly recommended for all projects.
 
 ### Migration to Mojang's Official Mappings
 
-As of 1.16.5, Forge will be using Mojang's Official Mappings, or MojMaps, for the forseeable future. Currently, there is no guarantee that these mappings are legally safe; however, Forge has decided to adopt them in good faith since Mojang wants them to be used. You can read about [Forge's stance here][mojmap].
+As of 1.16.5, Forge will be using Mojang's Official Mappings, or MojMaps, for the forseeable future. The official mappings provide all method and field names, with the class names coming in 1.17. Parameters and javadocs are not provided by this mapping set. Currently, there is no guarantee that these mappings are legally safe; however, Forge has decided to adopt them in good faith since Mojang wants them to be used. You can read about [Forge's stance here][mojmap].
 
-If you are uncomfortable using these mappings, you can revert them back the previously used mappings: MCP. Note that the following will most likely be the last MCP mappings released as they are no longer being maintained:
+If you are uncomfortable using these mappings, you can revert them back the previously used mappings: MCP. MCP provides a partial list of mapped methods, fields, parameters and javadocs. Note that the following will most likely be the last MCP mappings released as they are no longer being maintained:
 
 ```groovy
 minecraft {
